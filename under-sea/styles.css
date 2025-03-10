@@ -3,7 +3,7 @@
 
 /* Page Styles */
 body {
-    background-color: dodgerblue;
+    background-color: dodgerblue; /* Ocean-like background color */
 }
 
 /* Heading Styles */
@@ -13,7 +13,7 @@ h1 {
     font-family: 'Bungee', cursive;
 }
 
-/* Scene */
+/* Ocean Scene Container */
 div {
     background-size: cover;
     background-repeat: no-repeat;
@@ -26,31 +26,28 @@ div {
     max-width: 550px;
 }
 
-/* All Objects */
+/* All Objects (Sea Creatures) */
 img {
-    /* These values allow the objects to be animated */
     display: block;
     position: absolute;
 }
 
-/* Object 1 */
+/* Octopus (Object 1) */
 #object-1 {
     animation: octopusSwim 5s infinite;
     top: 30px;
     width: 100px;
 }
 
-/* Object 2 */
+/* Fish (Object 2) */
 #object-2 {
     animation: fishSwim 12s infinite;
-    /* Position */
     top: 200px;
-    /* Size */
     width: 130px;
 }
 
-/* Text Styles */
-p {
+/* Text Box Styles */
+p, ul {
     background-color: white;
     margin: 0 auto;
     max-width: 540px;
@@ -58,77 +55,27 @@ p {
     font-family: 'Roboto', sans-serif;
 }
 
-ul {
-    background-color: white;
-    margin: 0 auto;
-    max-width: 540px;
-    padding: 15px;
-}
-
+/* List Item Styles */
 li {
     background-color: white;
     margin-left: 30px;
     font-family: 'Roboto', sans-serif;
 }
 
-/* Swim Animation */
+/* Swim Animation for Octopus */
 @keyframes octopusSwim {
-    /* Start */
-    0% {
-        /* Position */
-        left: 0px;
-        /* Direction */
-        transform: scaleX(1);
-    }
-    /* Move */
-    40% {
-        left: 65%;
-        transform: scaleX(1);
-    }
-    /* Turn Around */
-    50% {
-        left: 65%;
-        transform: scaleX(-1);
-    }
-    /* Move */
-    90% {
-        left: 0px;
-        transform: scaleX(-1);
-    }
-    /* Turn Around */
-    100% {
-        left: 0px;
-        transform: scaleX(1);
-    }
+    0% { left: 0px; transform: scaleX(1); } /* Start moving right */
+    40% { left: 65%; transform: scaleX(1); } /* Continue moving right */
+    50% { left: 65%; transform: scaleX(-1); } /* Flip direction */
+    90% { left: 0px; transform: scaleX(-1); } /* Move left */
+    100% { left: 0px; transform: scaleX(1); } /* Reset to original position */
 }
 
-/* Swim Animation for fish */
+/* Swim Animation for Fish */
 @keyframes fishSwim {
-    /* Start */
-    0% {
-        /* Position */
-        left: 0px;
-        transform: scaleX(-1);
-    }
-    /* Move */
-    40% {
-        left: 65%;
-        transform: scaleX(-1);
-    }
-    50% {
-        /* Position */
-        left: 65%;	
-        transform: scaleX(1);
-    }
-    /* Move */
-    90% {
-        left: 0px;
-        transform: scaleX(1);
-    }
-    /* Turn Around */
-    100% {
-        /* Position */
-        left: 0px;
-        transform: scaleX(-1);
-    }
+    0% { left: 0px; transform: scaleX(-1); } /* Start moving right */
+    40% { left: 65%; transform: scaleX(-1); }
+    50% { left: 65%; transform: scaleX(1); } /* Flip direction */
+    90% { left: 0px; transform: scaleX(1); } /* Move left */
+    100% { left: 0px; transform: scaleX(-1); } /* Reset to original position */
 }
