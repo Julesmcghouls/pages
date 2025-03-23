@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-a-Crocodile</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #cce7ff;
+        }
+        #game-board {
+            display: grid;
+            grid-template-columns: repeat(3, 120px);
+            gap: 20px;
+            justify-content: center;
+            margin: 20px auto;
+        }
+        .hole {
+            width: 120px;
+            height: 120px;
+            background: brown;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+        .animal {
+            width: 100px;
+            height: 100px;
+            font-size: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: -100px;
+            left: 10px;
+            transition: bottom 0.3s;
+        }
+        .show {
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Whack-a-Crocodile!</h1>
+    <p>Score: <span id="score">0</span></p>
+    <div id="game-board">
+        <div class="hole"><div class="animal" data-type="croc"></div></div>
+        <div class="hole"><div class="animal" data-type="croc"></div></div>
+        <div class="hole"><div class="animal" data-type="croc"></div></div>
+        <div class="hole"><div class="animal" data-type="croc"></div></div>
+        <div class="hole"><div class="animal" data-type="croc"></div></div>
+        <div class="hole"><div class="animal" data-type="croc"></div></div>
+    </div>
+    <button id="start-button">Start Game</button>
+    <p id="fact"></p>
+    <script>
+        const animals = [
+            { type: "croc", points: 1, image: "🐊" },
+            { type: "heron", points: -1, image: "🦩" },
+            { type: "turtle", points: -1, image: "🐢" },
+            { type: "panther", points: -1, image: "🐆" }
+        ];
+        const facts = [
+            "The Everglades is the only place on Earth where alligators and crocodiles coexist!",
+            "Over 350 species of birds live in the Everglades!",
+            "The Everglades is home to the endangered Florida panther.",
+            "The sawgrass in the Everglades can grow up to 6 feet tall!"
+        ];
+        
+        let score = 0;
+        let gameInterval;
+        
+        document.getElementById("start-button").addEventListener("click", startGame);
+        
+        function startGame() {
+            score = 0;
+            document.getElementById("score").innerText = score;
+            gameInterval = setInterval(spawnAnimal, 1000);
+            setTimeout(endGame, 15000);
+        }
+        
+        function spawnAnimal() {
+            const holes = document.querySelectorAll(".hole .animal");
+            const randomHole = holes[Math.floor(Math.random() * holes.length)];
+            const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+            randomHole.innerText = randomAnimal.image;
+            randomHole.dataset.type = randomAnimal.type;
+            randomHole.classList.add("show");
+            setTimeout(() => randomHole.classList.remove("show"), 800);
+        }
+        
+        document.querySelectorAll(".animal").forEach(animal => {
+            animal.addEventListener("click", handleWhack);
+            animal.addEventListener("touchstart", handleWhack);
+        });
+        
+        function handleWhack(event) {
+            if (this.classList.contains("show")) {
+                score += animals.find(a => a.type === this.dataset.type).points;
+                document.getElementById("score").innerText = score;
+                this.classList.remove("show");
+            }
+            event.preventDefault(); // Prevents double tap zoom issues
+        }
+        
+        function endGame() {
+            clearInterval(gameInterval);
+            document.getElementById("fact").innerText = facts[Math.floor(Math.random() * facts.length)];
+        }
+    </script>
+</body>
+</html>

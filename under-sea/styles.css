@@ -3,18 +3,50 @@
 
 /* Page Styles */
 body {
-    background-color: dodgerblue; /* Ocean-like background color */
+    background-color: dodgerblue;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-/* Heading Styles */
-h1 {
-    color: white;
-    text-align: center;
+#title {
     font-family: 'Bungee', cursive;
+    font-size: 50px;
+    text-align: center;
 }
 
-/* Ocean Scene Container */
-div {
+p{
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px;
+    line-height: 1.5;
+}
+
+ul, li{ 
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px;
+    overflow: hidden;
+}
+
+
+/* Background Bubbles */
+#background-wrap {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+/* Ocean Scene */
+#ocean {
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url("underwater-ocean.jpg"); /* Ensure this path is correct */
@@ -26,56 +58,72 @@ div {
     max-width: 550px;
 }
 
-/* All Objects (Sea Creatures) */
+/* All Objects */
 img {
     display: block;
     position: absolute;
 }
 
-/* Octopus (Object 1) */
+/* Object 1 - Octopus */
 #object-1 {
     animation: octopusSwim 5s infinite;
     top: 30px;
     width: 100px;
 }
 
-/* Fish (Object 2) */
+/* Object 2 - Fish */
 #object-2 {
     animation: fishSwim 12s infinite;
     top: 200px;
     width: 130px;
 }
 
-/* Text Box Styles */
-p, ul {
-    background-color: white;
-    margin: 0 auto;
-    max-width: 540px;
-    padding: 15px;
-    font-family: 'Roboto', sans-serif;
-}
-
-/* List Item Styles */
-li {
-    background-color: white;
-    margin-left: 30px;
-    font-family: 'Roboto', sans-serif;
-}
-
-/* Swim Animation for Octopus */
+/* Swim Animation */
 @keyframes octopusSwim {
-    0% { left: 0px; transform: scaleX(1); } /* Start moving right */
-    40% { left: 65%; transform: scaleX(1); } /* Continue moving right */
-    50% { left: 65%; transform: scaleX(-1); } /* Flip direction */
-    90% { left: 0px; transform: scaleX(-1); } /* Move left */
-    100% { left: 0px; transform: scaleX(1); } /* Reset to original position */
+    0% { left: 0px; transform: scaleX(1); }
+    40% { left: 65%; transform: scaleX(1); }
+    50% { left: 65%; transform: scaleX(-1); }
+    90% { left: 0px; transform: scaleX(-1); }
+    100% { left: 0px; transform: scaleX(1); }
 }
 
-/* Swim Animation for Fish */
 @keyframes fishSwim {
-    0% { left: 0px; transform: scaleX(-1); } /* Start moving right */
+    0% { left: 0px; transform: scaleX(-1); }
     40% { left: 65%; transform: scaleX(-1); }
-    50% { left: 65%; transform: scaleX(1); } /* Flip direction */
-    90% { left: 0px; transform: scaleX(1); } /* Move left */
-    100% { left: 0px; transform: scaleX(-1); } /* Reset to original position */
+    50% { left: 65%; transform: scaleX(1); }
+    90% { left: 0px; transform: scaleX(1); }
+    100% { left: 0px; transform: scaleX(-1); }
 }
+
+/* Bubbles Animation */
+@keyframes animateBubble {
+    0% { margin-top: 1000px; }
+    100% { margin-top: -100%; }
+}
+
+@keyframes sideWays {
+    0% { margin-left: 0px; }
+    100% { margin-left: 50px; }
+}
+
+/* Bubble Styling */
+.bubble {
+    border-radius: 50%;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
+    height: 200px;
+    position: absolute;
+    width: 200px;
+}
+
+/* Individual Bubble Animations */
+.x1 { animation: animateBubble 25s linear infinite, sideWays 2s ease-in-out infinite alternate; left: -5%; top: 5%; transform: scale(0.6); }
+.x2 { animation: animateBubble 20s linear infinite, sideWays 4s ease-in-out infinite alternate; left: 5%; top: 80%; transform: scale(0.4); }
+.x3 { animation: animateBubble 28s linear infinite, sideWays 2s ease-in-out infinite alternate; left: 10%; top: 40%; transform: scale(0.7); }
+.x4 { animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate; left: 20%; top: 0; transform: scale(0.3); }
+.x5 { animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate; left: 30%; top: 50%; transform: scale(0.5); }
+.x6 { animation: animateBubble 21s linear infinite, sideWays 2s ease-in-out infinite alternate; left: 50%; top: 0; transform: scale(0.8); }
+.x7 { animation: animateBubble 20s linear infinite, sideWays 2s ease-in-out infinite alternate; left: 65%; top: 70%; transform: scale(0.4); }
+.x8 { animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate; left: 80%; top: 10%; transform: scale(0.3); }
+.x9 { animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate; left: 90%; top: 50%; transform: scale(0.6); }
+.x10 { animation: animateBubble 26s linear infinite, sideWays 2s ease-in-out infinite alternate; left: 80%; top: 80%; transform: scale(0.3); }
+
