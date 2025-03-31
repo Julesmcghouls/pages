@@ -2,13 +2,13 @@
     font-family: "Jacquard 12", system-ui;
     font-weight: 400;
     font-style: normal;
-}  
+    font-size: 30px;
+}
 
 body {
-    font-family: "Jacquard 12", system-ui;
-    font-weight: 400;
-    font-style: normal;
-    background-color: #f0f0f0;
+    font-family: "Macondo", cursive;
+    background-color: #2c2c2c;
+    color: white;
     margin: 0;
     padding: 0;
     display: flex;
@@ -18,9 +18,100 @@ body {
 }
 
 .container {
-    background-color: white;
-    border-radius: 8px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
     text-align: center;
+    width: 90%;
+    max-width: 500px;
+}
+
+h1 {
+    color: gold;
+    text-shadow: 2px 2px black;
+}
+
+#monsterInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid gold;
+    border-radius: 5px;
+    font-size: 16px;
+    background: black;
+    color: white;
+}
+
+#searchButton {
+    background-color: gold;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+#searchButton:hover {
+    background-color: orange;
+}
+
+#monsterResult {
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px solid gold;
+    border-radius: 10px;
+    background-color: black;
+    text-align: left;
+    color: white;
+}
+
+.monster-card {
+    padding: 10px;
+    border-radius: 8px;
+    background: black;
+    box-shadow: 0 4px 6px rgba(255, 215, 0, 0.3);
+}
+
+h2 {
+    color: gold;
+    text-shadow: 1px 1px black;
+    text-align: center;
+}
+
+.stat-list {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.stat-list li {
+    list-style: none;
+    font-weight: bold;
+    padding: 5px;
+}
+
+#suggestions {
+    background: black;
+    border: 2px solid gold;
+    border-radius: 5px;
+    position: absolute;
+    width: calc(100% - 20px);
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+}
+
+#suggestions div {
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+#suggestions div:hover {
+    background-color: darkgoldenrod;
 }
