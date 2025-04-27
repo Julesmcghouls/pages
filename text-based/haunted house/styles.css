@@ -1,0 +1,116 @@
+@font-face {
+    font-family: Determination;
+    src: url(Fonts/DeterminationMonoWebRegular-Z5oq.ttf);
+  }
+  
+  body {
+    font-family: Determination;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  body>* {
+    width: 700px;
+  }
+  
+  h1 {
+    font-size: 5rem;
+  }
+  
+  h2 {
+    font-size: 3rem;
+  }
+  
+  #TextAndOptionsContainer {
+    font-family: Determination;
+    background-color: black;
+    border: 4px solid white;
+    text-align: left;
+    width: 800px;
+    height: 300px;
+    font-size: 2.2rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-between;
+    user-select: none;
+  }
+  
+  #ExitButton {
+    float: right;
+  }
+  
+  #ExitButton:hover {
+    background-color: black;
+  }
+  
+  #ExitConfirmation {
+    position: absolute;
+    width: 640px;
+    height: 160px;
+    background-color: black;
+    border: 4px solid white;
+    font-size: 1.2rem;
+    display: none;
+  }
+  
+  #Options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  #LevelSelect {
+    display: flex;
+    gap: 3rem;
+  }
+  
+  button, a {
+    font-family: Determination;
+    font-size: 2.5rem;
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    text-decoration: none;
+  }
+  
+  a {
+    display: inline-block;
+    margin: 8px;
+  }
+  
+  button:hover, a:hover {
+    background-color: white;
+    color: black;
+    text-decoration: none;
+  }
+  
+  #ImageContainer {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #Image {
+    height: 350px;
+    width: 350px;
+    object-fit: stretch;
+  }
+  
+  footer {
+    text-align: center;
+  }

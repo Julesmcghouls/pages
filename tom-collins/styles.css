@@ -1,0 +1,58 @@
+/* Apply a clean, modern font and add some spacing */
+body {
+    font-family: Arial, sans-serif; /* Ensures readability */
+    background-color: #f8f9fa; /* Light gray background for a subtle contrast */
+    color: #333; /* Dark gray for easy reading */
+    margin: 0;
+    padding: 20px;
+    text-align: center; /* Centers the content for a clean layout */
+}
+
+/* Style for the main heading */
+h1 {
+    font-size: 2.5em; /* Makes the title stand out */
+    color: #2c3e50; /* Dark blue-gray for elegance */
+    margin-bottom: 10px;
+}
+
+/* Style for the image */
+img {
+    width: 50%; /* Makes the image responsive */
+    max-width: 400px; /* Prevents it from being too large */
+    border-radius: 10px; /* Softens the edges */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds depth */
+    margin-bottom: 15px;
+}
+
+/* Style for the paragraph */
+p {
+    font-size: 1.2em; /* Slightly larger text for better readability */
+    line-height: 1.5; /* Improves spacing */
+    max-width: 600px; /* Limits width for easy reading */
+    margin: 0 auto 20px; /* Centers the text */
+}
+
+/* Style for section headings */
+h2 {
+    color: #d35400; /* A warm orange to contrast the cool title */
+    margin-top: 20px;
+}
+
+/* Styling the ingredient and instruction lists */
+ul, ol {
+    text-align: left; /* Aligns text for better readability */
+    max-width: 400px; /* Keeps lists compact */
+    margin: 0 auto 20px; /* Centers the lists */
+    padding: 0;
+}
+
+li {
+    font-size: 1.1em; /* Makes list items easier to read */
+    margin-bottom: 8px;
+}
+
+/* Add a slight hover effect for fun */
+li:hover {
+    color: #3498db; /* Changes color to blue when hovered */
+    transition: color 0.3s ease-in-out;
+}
