@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Monster Whack</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://i.imgur.com/Dx6H5hG.png">
+    <!-- Font for D&D style -->
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="parchment">
+        <h1>Tavern Basement Brawl!</h1>
+        <h2>Gold: <span class="score">0</span></h2>
+        <button id="start" onClick="startGame()">Begin Adventure</button>
+        
+        <div class="game-board">
+            <div class="dungeon-hole hole1">
+                <div class="monster"></div>
+                <div class="dungeon-floor"></div>
+            </div>
+            <div class="dungeon-hole hole2">
+                <div class="monster"></div>
+                <div class="dungeon-floor"></div>
+            </div>
+            <div class="dungeon-hole hole3">
+                <div class="monster"></div>
+                <div class="dungeon-floor"></div>
+            </div>
+            <div class="dungeon-hole hole4">
+                <div class="monster"></div>
+                <div class="dungeon-floor"></div>
+            </div>
+            <div class="dungeon-hole hole5">
+                <div class="monster"></div>
+                <div class="dungeon-floor"></div>
+            </div>
+            <div class="dungeon-hole hole6">
+                <div class="monster"></div>
+                <div class="dungeon-floor"></div>
+            </div>
+        </div>
+        
+        <div class="health-bar">
+            <div class="health-fill"></div>
+        </div>
+        <p class="timer">Time remaining: <span class="time">60</span>s</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

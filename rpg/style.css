@@ -1,0 +1,175 @@
+/* D&D Theme Styles */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url('https://i.imgur.com/YbqYVqQ.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'IM Fell English', serif;
+    color: #3d2c1a;
+}
+
+.parchment {
+    background: url('https://i.imgur.com/JWZQZQq.png') no-repeat center center;
+    background-size: contain;
+    width: 90%;
+    max-width: 900px;
+    min-height: 90vh;
+    margin: 2rem auto;
+    padding: 4rem 6rem;
+    text-align: center;
+    position: relative;
+}
+
+h1 {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 3.5rem;
+    color: #8b0000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 0 0 1rem 0;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #3d2c1a;
+    margin: 0.5rem 0;
+}
+
+.score {
+    color: #d4af37;
+    font-weight: bold;
+    font-size: 2.8rem;
+}
+
+.game-board {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 2rem auto;
+    perspective: 1000px;
+}
+
+.dungeon-hole {
+    flex: 0 0 30%;
+    height: 45%;
+    position: relative;
+    overflow: hidden;
+    margin: 0.5rem;
+    transition: all 0.3s;
+}
+
+.dungeon-floor {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background: url('https://i.imgur.com/8Q9QZQq.png') repeat-x;
+    background-size: contain;
+    z-index: 2;
+}
+
+.monster {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    bottom: -100%;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1;
+    transform-style: preserve-3d;
+}
+
+.dungeon-hole.up .monster {
+    bottom: 0;
+    animation: monsterAppear 0.5s forwards;
+}
+
+@keyframes monsterAppear {
+    0% { transform: translateY(100%) rotateX(90deg); }
+    50% { transform: translateY(50%) rotateX(45deg); }
+    100% { transform: translateY(0) rotateX(0); }
+}
+
+#start {
+    background: #8b0000;
+    color: #f5deb3;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1.8rem;
+    padding: 0.8rem 2rem;
+    border: 2px solid #3d2c1a;
+    border-radius: 0;
+    cursor: pointer;
+    margin: 1rem 0;
+    transition: all 0.3s;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+#start:hover {
+    background: #6b0000;
+    transform: scale(1.05);
+}
+
+.health-bar {
+    width: 60%;
+    height: 20px;
+    background: #3d2c1a;
+    margin: 1rem auto;
+    border: 2px solid #1a120b;
+    position: relative;
+}
+
+.health-fill {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, #8b0000, #ff0000);
+    transition: width 0.5s;
+}
+
+.timer {
+    font-size: 1.5rem;
+    color: #3d2c1a;
+    margin: 0.5rem 0;
+}
+
+.time {
+    font-weight: bold;
+    color: #8b0000;
+}
+
+/* Monster types - will be assigned randomly */
+.monster.goblin {
+    background-image: url('https://i.imgur.com/GxQxQxQ.png');
+}
+
+.monster.orc {
+    background-image: url('https://i.imgur.com/HxHxHxH.png');
+}
+
+.monster.skeleton {
+    background-image: url('https://i.imgur.com/IxIxIxI.png');
+}
+
+/* Hit effect */
+.monster.hit {
+    animation: monsterHit 0.5s forwards;
+}
+
+@keyframes monsterHit {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { 
+        transform: scale(0.8);
+        opacity: 0;
+        bottom: -100%;
+    }
+}
